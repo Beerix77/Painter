@@ -1,26 +1,38 @@
 console.log('Hello World!');
 
+const randomNumber = function(){
+
+  let number = Math.floor(Math.random() * 256);
+  return number;
+}
+
+
+
+
 document.addEventListener('mousemove', function(ev){
 
+  if (ev.shiftKey){
+
+    //console.log(ev.pageX, ev.pageY);
+
+    const brushNode = document.createElement('div');
+
+    brushNode.className = 'location';
+
+    const brushSize = 16;
+    
+    brushNode.style.backgroundColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
+    brushNode.style.width = brushSize + 'px';
+    brushNode.style.height = brushSize + 'px';
   
 
-  //console.log(ev.pageX, ev.pageY);
-
-  const brushNode = document.createElement('div');
-
-  brushNode.className = 'location';
-
-  const brushSize = 16;
-  
-  brushNode.style.backgroundColor = 'red';
-  brushNode.style.width = brushSize + 'px';
-  brushNode.style.height = brushSize + 'px';
-  brushNode.style.borderRadius = 50 + '%';
-
-  brushNode.style.top = ev.pageY+ 'px'
-  brushNode.style.left = ev.pageX + 'px'
+    brushNode.style.top = (ev.pageY - (brushSize / 2)) + 'px';
+    brushNode.style.left = (ev.pageX - (brushSize / 2)) +'px';
 
 
-  document.body.appendChild(brushNode);
+
+    document.body.appendChild(brushNode);
+
+  }
 });
 
