@@ -7,7 +7,7 @@ const randomNumber = function(){
 }
 
 
-
+let hueCounter = 0; // will reset to 0 at 361 etc
 
 document.addEventListener('mousemove', function(ev){
 
@@ -21,7 +21,12 @@ document.addEventListener('mousemove', function(ev){
 
     const brushSize = 16;
     
-    brushNode.style.backgroundColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
+    // brushNode.style.backgroundColor = `rgb(${randomNumber()}, ${randomNumber()}, ${randomNumber()})`;
+    brushNode.style.backgroundColor = `hsla(${hueCounter}, 100%, 50%, 0.65)`;
+    hueCounter++;
+    
+
+
     brushNode.style.width = brushSize + 'px';
     brushNode.style.height = brushSize + 'px';
   
