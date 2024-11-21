@@ -55,13 +55,14 @@ setInterval(function(){
 
   for(const brush of allBrushes){
     
-     const topNum = parseInt(brush.style.top);
-     brush.style.top = (topNum + 10) + 'px';
+    const topNum = parseInt(brush.style.top);
+    brush.style.top = (topNum + 10) + 'px';
 
-  }
-
-
-  if(topNum > window.innerHeight){
+     
+    if(topNum > window.innerHeight){
     brush.remove();
+    }
   }
+
+
 }, 15)
